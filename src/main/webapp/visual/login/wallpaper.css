@@ -20,3 +20,17 @@ img.loading{
     
 }
 
+form.login{
+   display: block;
+   position: absolute;
+   top: 50%;
+   left: 45%;
+   width: 10%;
+   margin-top: auto; /* Half the height */
+   margin-left: auto; /* Half the width */
+   
+   color: white;
+   font-size: 2ex;
+   text-shadow: 2px -2px #000000;
+}
+

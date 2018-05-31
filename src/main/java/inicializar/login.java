@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import configuracao.SQLite;
+
 /**
  *
  * @author desktop
@@ -36,14 +38,40 @@ public class login extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
+            out.println("<!--");
+            out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+            out.println("-->");            
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet login</title>");            
+            out.println("<title>Traders - Gerenciador de Investimentos</title>");
+            out.println("<meta charset=\"UTF-8\">");
+            out.println("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">");
+            out.println("<link rel=\"stylesheet\" type=\"text/css\" href=\"visual/login/wallpaper.css\"/>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet login at " + request.getContextPath() + "</h1>");
+
+            out.println("<form action=\"login\" class=\"login\" method=\"post\">");
+            out.println("Usuario:<br>");
+            out.println("<input type=\"text\" name=\"usuario\" value=\"\"><br>");
+            out.println("Senha:<br>");
+            out.println("<input type=\"password\" name=\"passwd\" value=\"\"><br>");
+            out.println("<input type=\"submit\" value=\"Entrar\">");
+            out.println("</form>");
+            
             out.println("</body>");
             out.println("</html>");
+            
+            SQLite dados = new SQLite();
+            
+            if (!dados.isArquivo()){
+                out.println("<script>alert(\""+dados.statusDB()+"\");</script>");
+            }else{
+                out.println("<script>alert(\""+dados.statusDB()+"\");</script>");
+                
+            }
+           
+            
+            
         }
     }
 
