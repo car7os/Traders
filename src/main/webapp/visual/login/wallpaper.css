@@ -1,0 +1,22 @@
+body, html {
+    height: 100%;
+    margin: 0;
+
+    background-image: url("https://livewallpaper.info/wp-content/uploads/2017/08/Full-HD-s-1080p-4k-HD-New-wallpaper-wpt100556.jpg");
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+img.loading{
+    display: block;
+   position: absolute;
+   top: 50%;
+   left: 45%;
+   width: 10%;
+   margin-top: auto; /* Half the height */
+   margin-left: auto; /* Half the width */
+    
+}
+
