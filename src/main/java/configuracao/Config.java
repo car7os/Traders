@@ -5,41 +5,42 @@ import java.io.File;
 public abstract class Config{
 
     String arquivo = "dados.db";
-    
     String pastaWindows = "C:\\Traders\\";
     String pastaLinux = "\\Traders\\";
+    String caminho;
+    Boolean isPasta;
+    Boolean isDados;  
+    File file;
     
-    String caminhoWindows = pastaWindows+arquivo;
-    String caminhoLinux = pastaLinux+arquivo;
-    
-    String caminho = "ERROR: Sistema não inicializado";
-    
-    String status = "";
-    
-    
-    public Boolean isArquivo(){
+    public Boolean isBancodeDados(){
 
-    Boolean isDados = false;
-        
-    File fileWindows = new File(caminhoWindows);
-    File fileLinux = new File(caminhoLinux);
+    File fileWindows = new File(pastaWindows);
+    File fileLinux = new File(pastaLinux);
+
+    isPasta = false;
+    isDados = false;
+    caminho = ".";
+
     
-    if (fileWindows.exists()){
-        isDados = true;
-        this.caminho = caminhoWindows;
-        this.status = "SUCESS: Sistema Operacional Windows";
+    if (fileWindows.isDirectory()){
+        this.caminho = pastaWindows;
+        isPasta = true;
     }
     else{
-        if (fileLinux.exists()){
-            isDados = true;
-            this.caminho = caminhoLinux;
-            this.status = "SUCESS: Sistema Operacional Linux";
+        if (fileLinux.isDirectory()){
+            this.caminho = pastaLinux;
+            isPasta = true;
 
         }
         else{
-            isDados = false;
-            this.status = "ERROR: O Sistema Operacional Não é Windows nem Unix";
+            isPasta = false;
         }
+    }
+
+    file = new File(this.caminho+arquivo);
+    
+    if(isPasta && file.exists()){
+        isDados=true;
     }
 
     
@@ -47,8 +48,6 @@ public abstract class Config{
     }
     
     
-    public String statusDB(){
-        return this.status;
-    }
+    
     
 }
