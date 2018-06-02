@@ -63,10 +63,10 @@ public class login extends HttpServlet {
             
             SQLite dados = new SQLite();
             
-            if (dados.isBancodeDados()){
-                out.println("<script>alert(\" Arquivo existe \");</script>");
+            if (true){
+                out.println("<script>alert(\" >>> "+" \");</script>");
             }else{
-                out.println("<script>alert(\" Arquivo NAO existe \");</script>");
+                out.println("<script>alert(\" >>> "+" \");</script>");
                 
             }
            

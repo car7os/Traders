@@ -2,52 +2,57 @@ package configuracao;
 
 import java.io.File;
 
-public abstract class Config{
+public class Config{
 
-    String arquivo = "dados.db";
-    String pastaWindows = "C:\\Traders\\";
-    String pastaLinux = "\\Traders\\";
-    String caminho;
-    Boolean isPasta;
-    Boolean isDados;  
-    File file;
+    private String arquivo = "dados.db";
+    private String pastaWindows = "C:\\Traders\\";
+    private String pastaLinux = "\\Traders\\";
+    private String caminho;
+    private File file;
     
-    public Boolean isBancodeDados(){
+    protected Boolean isDados(){
 
     File fileWindows = new File(pastaWindows);
     File fileLinux = new File(pastaLinux);
+    Boolean pasta = false;
+    Boolean dados = false;
+    caminho = "ERROR: Pasta não encontrada.";
 
-    isPasta = false;
-    isDados = false;
-    caminho = ".";
-
-    
     if (fileWindows.isDirectory()){
         this.caminho = pastaWindows;
-        isPasta = true;
+        pasta = true;
     }
     else{
         if (fileLinux.isDirectory()){
             this.caminho = pastaLinux;
-            isPasta = true;
-
+            pasta = true;
         }
         else{
-            isPasta = false;
+            pasta = false;
         }
     }
 
     file = new File(this.caminho+arquivo);
     
-    if(isPasta && file.exists()){
-        isDados=true;
+    if(pasta && file.exists()){
+        dados=true;
     }
 
-    
-    return isDados;
+    return dados;
     }
     
+    protected String getCaminho(){
+        isDados();
+        return this.caminho;
+    }
     
+    protected String getArquivo(){
+        return this.arquivo;
+    }
     
+    protected String getCaminhoComArquivo(){
+        isDados();
+        return file.getPath();
+    }
     
 }
