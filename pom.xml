@@ -4,7 +4,7 @@
 
     <groupId>com.car7os</groupId>
     <artifactId>Traders</artifactId>
-    <version>0.1</version>
+    <version>0.2</version>
     <packaging>war</packaging>
 
     <name>Traders</name>
@@ -20,13 +20,6 @@
             <artifactId>javaee-web-api</artifactId>
             <version>7.0</version>
             <scope>provided</scope>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/org.xerial/sqlite-jdbc -->
-        <dependency>
-            <groupId>org.xerial</groupId>
-            <artifactId>sqlite-jdbc</artifactId>
-            <version>3.23.1</version>
         </dependency>
 
     </dependencies>

@@ -1,10 +1,9 @@
-package inicializar;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package sistema;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -14,13 +13,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import configuracao.SQLite;
-
 /**
  *
  * @author desktop
  */
-@WebServlet(urlPatterns = {"/login"})
+@WebServlet(name = "login", urlPatterns = {"/login"})
 public class login extends HttpServlet {
 
     /**
@@ -36,42 +33,9 @@ public class login extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<!--");
-            out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-            out.println("-->");            
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Traders - Gerenciador de Investimentos</title>");
-            out.println("<meta charset=\"UTF-8\">");
-            out.println("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">");
-            out.println("<link rel=\"stylesheet\" type=\"text/css\" href=\"visual/login/wallpaper.css\"/>");
-            out.println("</head>");
-            out.println("<body>");
 
-            out.println("<form action=\"login\" class=\"login\" method=\"post\">");
-            out.println("Usuario:<br>");
-            out.println("<input type=\"text\" name=\"usuario\" value=\"\"><br>");
-            out.println("Senha:<br>");
-            out.println("<input type=\"password\" name=\"passwd\" value=\"\"><br>");
-            out.println("<input type=\"submit\" value=\"Entrar\">");
-            out.println("</form>");
-            
-            out.println("</body>");
-            out.println("</html>");
-            
-            SQLite dados = new SQLite();
-            
-            if (true){
-                out.println("<script>alert(\" >>> "+" \");</script>");
-            }else{
-                out.println("<script>alert(\" >>> "+" \");</script>");
-                
-            }
-           
-            
-            
+            response.sendRedirect("interface/login");
+
         }
     }
 
@@ -101,7 +65,11 @@ public class login extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        
+        
+        String username = request.getParameter("login[username]");
+        String password = request.getParameter("login[password]");
+        response.sendRedirect(username);
     }
 
     /**
