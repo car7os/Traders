@@ -34,7 +34,12 @@ public class login extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
 
+            //Propriedades propriedades = new Propriedades();
+            //String nome = propriedades.getValor("nome");
+            //out.println(nome);
+                        
             response.sendRedirect("interface/login");
+
 
         }
     }
