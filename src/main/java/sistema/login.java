@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import sistema.DataBase;
+
 /**
  *
  * @author desktop
@@ -34,11 +36,11 @@ public class login extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
 
-            //Propriedades propriedades = new Propriedades();
-            //String nome = propriedades.getValor("nome");
-            //out.println(nome);
-                        
-            response.sendRedirect("interface/login");
+            
+            
+            DataBase DBA = new DataBase();
+            out.println(DBA.teste());
+           // response.sendRedirect("interface/login");
 
 
         }

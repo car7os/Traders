@@ -1,17 +1,17 @@
 package sistema;
 
 import java.io.File;
-import java.util.Properties;
 
 
 class ArquivoPropriedades {
 
 
-   private String arquivo = "traders.properties";
-    private String pastaWindows = "C:\\Traders\\";
-    private String pastaLinux = "\\Traders\\";
+   private final String arquivo = "traders.properties";
+    private final String pastaWindows = "C:\\Traders\\";
+    private final String pastaLinux = "U:\\Traders\\";
     private String caminho;
     private File file;
+    
     
     protected Boolean isArquivoPropriedades(){
 
@@ -20,7 +20,9 @@ class ArquivoPropriedades {
     Boolean pasta = false;
     Boolean dados = false;
     caminho = "ERROR: Pasta não encontrada.";
-
+    
+    
+    
     if (fileWindows.isDirectory()){
         this.caminho = pastaWindows;
         pasta = true;
