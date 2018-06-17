@@ -39,7 +39,7 @@ public class login extends HttpServlet {
             
             
             DataBase DBA = new DataBase();
-            out.println(DBA.teste());
+            out.println("");
            // response.sendRedirect("interface/login");
 
 
